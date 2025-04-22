@@ -257,7 +257,7 @@ public class StatisticService: IStatisticService
         {
             if (!filter.StartDate.HasValue || !filter.EndDate.HasValue)
             {
-                return Error.Validation("date_are_required_for_call_volume_trend");
+                return Error.Validation(code: "date_are_required_for_call_volume_trend");
             }
 
             var predicate = BuildFilterExpression(filter);
@@ -266,7 +266,7 @@ public class StatisticService: IStatisticService
 
             if (allCallsInDateRangeResult.IsError)
             {
-                return Error.Unexpected("error_fetching_calls_for_volume_trend");
+                return Error.Unexpected(code:"error_fetching_calls_for_volume_trend");
             }
             var allCallsInDateRange = allCallsInDateRangeResult.Value;
 
@@ -341,7 +341,7 @@ public class StatisticService: IStatisticService
 
             if (allCallsInDateRangeResult.IsError)
             {
-                return Error.Unexpected("error_fetching_calls_for_cost_by_currency");
+                return Error.Unexpected(code: "error_fetching_calls_for_cost_by_currency");
             }
             var allCallsInDateRange = allCallsInDateRangeResult.Value;
 
