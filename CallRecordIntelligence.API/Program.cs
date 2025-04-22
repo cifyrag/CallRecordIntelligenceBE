@@ -1,6 +1,8 @@
-using CallRecordIntelligence.EF;
-
 var builder = WebApplication.CreateBuilder(args);
+
+
+CallRecordIntelligence.API.Services.DependencyRegistration.RegisterDependency(builder.Services, builder.Configuration);
+CallRecordIntelligence.EF.Services.DependencyRegistration.RegisterDependency(builder.Services, builder.Configuration);
 
 builder.Services.AddControllers();
 
