@@ -9,15 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="realisation CallRecordService">
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Responses/CallRecordDto.cs" afterDir="false" />
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -50,7 +55,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/Controllers/CallRecordController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -67,6 +72,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.CallRecordIntelligence.API: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.CallRecordIntelligence.API: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;feature/call-record-service&quot;,
@@ -79,7 +86,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CallRecordIntelligence.API: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.CallRecordIntelligence.API: https">
     <configuration name="CallRecordIntelligence.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CallRecordIntelligence.API/CallRecordIntelligence.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -181,7 +188,7 @@
       <updated>1740153030721</updated>
       <workItem from="1740153037862" duration="62000" />
       <workItem from="1745315350920" duration="1730000" />
-      <workItem from="1745317112705" duration="10594000" />
+      <workItem from="1745317112705" duration="14105000" />
     </task>
     <task id="LOCAL-00001" summary="set up db">
       <option name="closed" value="true" />
@@ -239,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745327168870</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="call record endpoint">
+      <option name="closed" value="true" />
+      <created>1745328624951</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745328624951</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +282,7 @@
     <MESSAGE value="error messages" />
     <MESSAGE value="add PaginationResponse" />
     <MESSAGE value="realisation CallRecordService" />
-    <option name="LAST_COMMIT_MESSAGE" value="realisation CallRecordService" />
+    <MESSAGE value="call record endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="call record endpoint" />
   </component>
 </project>

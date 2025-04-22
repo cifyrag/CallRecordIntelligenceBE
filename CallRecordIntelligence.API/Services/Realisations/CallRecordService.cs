@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace CallRecordIntelligence.API.Services.Realisations;
 
 public class CallRecordService: ICallRecordService
@@ -73,6 +75,9 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
+            startTimestamp = startTimestamp?.ToUniversalTime();
+            endTimestamp = endTimestamp?.ToUniversalTime();
+            
             var total = await _callRecordRepository.CountAsync(
                 filter: c => 
                     (phoneNumber == null 
@@ -119,7 +124,111 @@ public class CallRecordService: ICallRecordService
     #endregion
     
     #region POST
-    
+
+    public async Task<Result<bool>> AddCallRecordsFromCsvAsync(Stream csvStream)
+    {
+        var callRecordRequests = new List<AddCallRecordRequest>();
+
+        try
+        {
+            using (var reader = new StreamReader(csvStream))
+            {
+                if (!reader.EndOfStream)
+                {
+                    await reader.ReadLineAsync();
+                }
+
+                while (!reader.EndOfStream)
+                {
+                    var line = await reader.ReadLineAsync();
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+
+                    var values = line.Split(',');
+
+                    if (values.Length < 8)
+                    {
+                        _logger.LogWarning(
+                            "Skipping CSV line with insufficient column count ({Count} instead of 8): {line}",
+                            values.Length, line);
+                        continue;
+                    }
+
+                    try
+                    {
+                        if (!DateTime.TryParseExact(values[2].Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                DateTimeStyles.None, out DateTime callDate))
+                        {
+                            _logger.LogWarning("Skipping CSV line due to invalid date format: {line}", line);
+                            continue;
+                        }
+
+                        if (!TimeSpan.TryParse(values[3].Trim(), CultureInfo.InvariantCulture, out TimeSpan callTime))
+                        {
+                            _logger.LogWarning("Skipping CSV line due to invalid time format: {line}", line);
+                            continue;
+                        }
+
+                        DateTimeOffset endDateTime = new DateTimeOffset(callDate.Add(callTime), TimeSpan.Zero);
+
+                        if (!int.TryParse(values[4].Trim(), out int durationSeconds))
+                        {
+                            _logger.LogWarning("Skipping CSV line due to invalid duration format: {line}", line);
+                            continue;
+                        }
+
+                        TimeSpan duration = TimeSpan.FromSeconds(durationSeconds);
+
+                        DateTimeOffset startDateTime = endDateTime - duration;
+
+                        if (!decimal.TryParse(values[5].Trim(), NumberStyles.Any, CultureInfo.InvariantCulture,
+                                out decimal cost))
+                        {
+                            _logger.LogWarning("Skipping CSV line due to invalid cost format: {line}", line);
+                            continue;
+                        }
+
+                        var request = new AddCallRecordRequest
+                        {
+                            CallerId = values[0].Trim(),
+                            Recipient = values[1].Trim(),
+                            StartTime = startDateTime,
+                            EndTime = endDateTime,
+                            Cost = cost,
+                            Reference = values[6].Trim(),
+                            Currency = values[7].Trim()
+                        };
+                        callRecordRequests.Add(request);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Unexpected error processing CSV line: {line}", line);
+                        continue;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error reading uploaded CSV stream.");
+            return Error.Unexpected("An error occurred while processing the CSV file.");
+        }
+
+        if (!callRecordRequests.Any())
+        {
+            return Error.Validation("No valid call records found in the CSV file.");
+        }
+
+        var addRangeResult = await AddCallRecordsRangeAsync(callRecordRequests);
+
+        if (addRangeResult.IsError)
+        {
+            _logger.LogError("Service error adding call records range: {error}", addRangeResult.Error);
+            return Error.Unexpected("An error occurred while adding call records to the repository.");
+        }
+
+        return addRangeResult.Value;
+    }
+
     public async Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request)
     {
         try
@@ -226,7 +335,6 @@ public class CallRecordService: ICallRecordService
             callRecord.Value.StartTime = request.StartTime ?? callRecord.Value.StartTime;
             callRecord.Value.EndTime = request.EndTime ?? callRecord.Value.EndTime;
             callRecord.Value.Cost = request.Cost ?? callRecord.Value.Cost;
-            callRecord.Value.Reference = request.Reference ?? callRecord.Value.Reference;
             callRecord.Value.Currency = request.Currency ?? callRecord.Value.Currency;
             
             return await _callRecordRepository.UpdateAsync(callRecord.Value);

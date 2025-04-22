@@ -10,7 +10,8 @@ public interface ICallRecordService
         string? phoneNumber = null, 
         DateTimeOffset? startTimestamp = null, 
         DateTimeOffset? endTimestamp = null);
-     
+
+    Task<Result<bool>> AddCallRecordsFromCsvAsync(Stream csvStream);
     Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request);
     Task<Result<bool>> AddCallRecordsRangeAsync(IEnumerable<AddCallRecordRequest> requests);
     

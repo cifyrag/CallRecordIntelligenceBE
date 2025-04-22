@@ -133,6 +133,39 @@ public class CallRecordController: ControllerBase
    #region POST
 
    /// <summary>
+   /// Uploads a CSV file containing call records and adds them in bulk.
+   /// Assumes the CSV file has a header row and columns in the order:
+   /// CallerId,Recipient,StartTime,EndTime,Cost,Reference,Currency
+   /// StartTime and EndTime should be in a format parsable by DateTimeOffset.Parse.
+   /// Cost should be in a format parsable by decimal.Parse.
+   /// </summary>
+   /// <param name="file">The CSV file to upload.</param>
+   /// <returns>A result indicating the success or failure of the bulk upload.</returns>
+   /// <response code="200">Call records from CSV added successfully.</response>
+   /// <response code="400">If no file is uploaded, the file is empty, the file format is incorrect, or data parsing fails.</response>
+   /// <response code="500">If an internal server error occurs during processing or adding records.</response>
+   [HttpPost("upload-csv")]
+   [ProducesResponseType(typeof(bool), 200)]
+   [ProducesResponseType(400)]
+   [ProducesResponseType(500)]
+   public async Task<IActionResult> UploadCsvAsync(IFormFile file)
+   {
+       if (file == null || file.Length == 0)
+       {
+           return BadRequest("No file uploaded or file is empty.");
+       }
+
+       var result = await _callRecordService.AddCallRecordsFromCsvAsync(file.OpenReadStream());
+
+       if (result.IsError)
+       {
+           return BadRequest(result.Error);
+       }
+
+       return Ok(result.Value);
+   }
+   
+   /// <summary>
    /// Creates a new call record.
    /// </summary>
    /// <param name="request">The call record details to create.</param>
