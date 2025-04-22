@@ -17,62 +17,149 @@ public class CallRecordService: ICallRecordService
     
     #region GET
     
-    public Task<Result<CallRecord>> GetCallRecordAsync(Guid callRecordId)
+    public async Task<Result<CallRecord>> GetCallRecordAsync(Guid callRecordId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while getting call record by id: {callRecordId}",
+                callRecordId);
+
+            return Error.Unexpected();
+        }
     }
 
-    public Task<Result<CallRecord>> GetCallRecordAsync(string reference)
+    public async Task<Result<CallRecord>> GetCallRecordAsync(string reference)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while getting call record by reference: {reference}",
+                reference);
+
+            return Error.Unexpected();
+        }
     }
 
-    public Task<Result<IEnumerable<CallRecord>>> GetCallRecordsAsync(string? phoneNumber = null, DateTimeOffset? startTimestamp = null,
+    public async Task<Result<IEnumerable<CallRecord>>> GetCallRecordsAsync(string? phoneNumber = null, DateTimeOffset? startTimestamp = null,
         DateTimeOffset? endTimestamp = null)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while getting call records list");
+
+            return Error.Unexpected();
+        }
     }
 
     #endregion
     
     #region POST
     
-    public Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request)
+    public async Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while adding call record");
+
+            return Error.Unexpected();
+        }
     }
 
-    public Task<Result<List<CallRecord>>> AddCallRecordsRangeAsync(List<AddCallRecordRequest> request)
+    public async Task<Result<List<CallRecord>>> AddCallRecordsRangeAsync(List<AddCallRecordRequest> request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while adding call records list");
+
+            return Error.Unexpected();
+        }
     }
 
     #endregion
     
     #region PUT
     
-    public Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, AddCallRecordRequest request)
+    public async Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, AddCallRecordRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while updating call record by id: {callRecordId}",
+                callRecordId);
+
+            return Error.Unexpected();
+        }
     }
 
-    public Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, AddCallRecordRequest request)
+    public async Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, AddCallRecordRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while updating call record by reference: {reference}",
+                reference);
+
+            return Error.Unexpected();
+        }
     }
     
     #endregion
     
     #region DELETE
     
-    public Task<Result<CallRecord>> RemoveCallRecordAsync(Guid callRecordId)
+    public async Task<Result<CallRecord>> RemoveCallRecordAsync(Guid callRecordId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while deleting call record by id: {callRecordId}",
+                callRecordId);
+
+            return Error.Unexpected();
+        }
     }
 
-    public Task<Result<CallRecord>> RemoveCallRecordAsync(string reference)
+    public async Task<Result<CallRecord>> RemoveCallRecordAsync(string reference)
     {
-        throw new NotImplementedException();
+        try
+        {
+            throw new NotImplementedException();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Exception caught while deleting call record by reference: {reference}",
+                reference);
+
+            return Error.Unexpected();
+        }
     }
     
     #endregion
