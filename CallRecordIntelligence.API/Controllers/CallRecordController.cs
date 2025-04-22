@@ -1,19 +1,11 @@
 namespace CallRecordIntelligence.API.Controllers;
 
-/// <summary>
-/// Controller for managing Call Records.
-/// Provides endpoints for retrieving, adding, updating, and deleting call records.
-/// </summary>
 [Route("/call-record-api/v1/")]
 [ApiController]
 public class CallRecordController: ControllerBase
 {
     private readonly ICallRecordService _callRecordService;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CallRecordController"/> class.
-    /// </summary>
-    /// <param name="callRecordService">The service for handling call record operations.</param>
     public CallRecordController(
         ICallRecordService callRecordService)
     {

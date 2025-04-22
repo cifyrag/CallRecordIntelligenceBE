@@ -1,5 +1,4 @@
 using System.Globalization;
-
 namespace CallRecordIntelligence.API.Services.Realisations;
 
 public class CallRecordService: ICallRecordService
@@ -16,6 +15,11 @@ public class CallRecordService: ICallRecordService
     
     #region GET
     
+    /// <summary>
+    /// Retrieves a call record by its unique identifier.
+    /// </summary>
+    /// <param name="callRecordId">The unique identifier of the call record.</param>
+    /// <returns>A containing the found call record or an error if not found or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> GetCallRecordAsync(Guid callRecordId)
     {
         try
@@ -39,6 +43,11 @@ public class CallRecordService: ICallRecordService
         }
     }
 
+    /// <summary>
+    /// Retrieves a call record by its reference string.
+    /// </summary>
+    /// <param name="reference">The reference string of the call record.</param>
+    /// <returns>A containing the found call record or an error if not found, the reference is missing, or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> GetCallRecordAsync(string reference)
     {
         try
@@ -66,6 +75,15 @@ public class CallRecordService: ICallRecordService
         }
     }
 
+    /// <summary>
+    /// Retrieves a paginated list of call records with optional filtering.
+    /// </summary>
+    /// <param name="page">The page number (0-indexed).</param>
+    /// <param name="pageSize">The number of records per page.</param>
+    /// <param name="phoneNumber">Optional phone number filter (matches caller or recipient).</param>
+    /// <param name="startTimestamp">Optional start timestamp filter.</param>
+    /// <param name="endTimestamp">Optional end timestamp filter.</param>
+    /// <returns>A containing the paginated list of call records or an unexpected error.</returns>
     public async Task<Result<PaginationResponse<CallRecord>>> GetCallRecordsAsync(
         int page = 0, 
         int pageSize = 50,
@@ -125,6 +143,11 @@ public class CallRecordService: ICallRecordService
     
     #region POST
 
+    /// <summary>
+    /// Adds call records by parsing data from a CSV stream.
+    /// </summary>
+    /// <param name="csvStream">The stream containing the CSV data.</param>
+    /// <returns>A indicating success or an error if parsing or adding failed.</returns>
     public async Task<Result<bool>> AddCallRecordsFromCsvAsync(Stream csvStream)
     {
         var callRecordRequests = new List<AddCallRecordRequest>();
@@ -229,6 +252,11 @@ public class CallRecordService: ICallRecordService
         return addRangeResult.Value;
     }
 
+    /// <summary>
+    /// Adds a single call record to the repository.
+    /// </summary>
+    /// <param name="request">The request object containing the call record details.</param>
+    /// <returns>A containing the added call record or an unexpected error.</returns>
     public async Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request)
     {
         try
@@ -254,6 +282,11 @@ public class CallRecordService: ICallRecordService
         }
     }
 
+    /// <summary>
+    /// Adds a range of call records to the repository.
+    /// </summary>
+    /// <param name="requests">An enumerable of request objects containing the call record details.</param>
+    /// <returns>A indicating success or an unexpected error.</returns>
     public async Task<Result<bool>> AddCallRecordsRangeAsync(IEnumerable<AddCallRecordRequest> requests)
     {
         try
@@ -283,6 +316,12 @@ public class CallRecordService: ICallRecordService
     
     #region PUT
     
+    /// <summary>
+    /// Updates an existing call record by its unique identifier.
+    /// </summary>
+    /// <param name="callRecordId">The unique identifier of the call record to update.</param>
+    /// <param name="request">The request object containing the updated call record details. Null properties will not update the corresponding field.</param>
+    /// <returns>A containing the updated call record or an error if not found or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, UpdateCallRecordRequest request)
     {
         try
@@ -314,6 +353,12 @@ public class CallRecordService: ICallRecordService
         }
     }
 
+    /// <summary>
+    /// Updates an existing call record by its reference string.
+    /// </summary>
+    /// <param name="reference">The reference string of the call record to update.</param>
+    /// <param name="request">The request object containing the updated call record details. Null properties will not update the corresponding field.</param>
+    /// <returns>A containing the updated call record or an error if not found, the reference is missing, or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, UpdateCallRecordRequest request)
     {
         try
@@ -352,6 +397,11 @@ public class CallRecordService: ICallRecordService
     
     #region DELETE
     
+    /// <summary>
+    /// Removes a call record by its unique identifier.
+    /// </summary>
+    /// <param name="callRecordId">The unique identifier of the call record to remove.</param>
+    /// <returns>A containing the removed call record or an error if not found or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> RemoveCallRecordAsync(Guid callRecordId)
     {
         try
@@ -375,6 +425,11 @@ public class CallRecordService: ICallRecordService
         }
     }
 
+    /// <summary>
+    /// Removes a call record by its reference string.
+    /// </summary>
+    /// <param name="reference">The reference string of the call record to remove.</param>
+    /// <returns>A containing the removed call record or an error if not found, the reference is missing, or an unexpected error occurred.</returns>
     public async Task<Result<CallRecord>> RemoveCallRecordAsync(string reference)
     {
         try
