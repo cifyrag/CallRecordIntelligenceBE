@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="add PaginationResponse">
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="realisation CallRecordService">
+      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Responses/CallRecordDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +181,7 @@
       <updated>1740153030721</updated>
       <workItem from="1740153037862" duration="62000" />
       <workItem from="1745315350920" duration="1730000" />
-      <workItem from="1745317112705" duration="8763000" />
+      <workItem from="1745317112705" duration="10594000" />
     </task>
     <task id="LOCAL-00001" summary="set up db">
       <option name="closed" value="true" />
@@ -231,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745322208363</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="realisation CallRecordService">
+      <option name="closed" value="true" />
+      <created>1745327168870</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745327168870</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +266,7 @@
     <MESSAGE value="set up interfase" />
     <MESSAGE value="error messages" />
     <MESSAGE value="add PaginationResponse" />
-    <option name="LAST_COMMIT_MESSAGE" value="add PaginationResponse" />
+    <MESSAGE value="realisation CallRecordService" />
+    <option name="LAST_COMMIT_MESSAGE" value="realisation CallRecordService" />
   </component>
 </project>
