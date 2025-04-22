@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  CdrDB:
+    image: postgres:16
+    ports:
+      - "5455:5432"
+    networks:
+      - cloud
+    volumes:
+      - CdrDB:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=CdrDB
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  CdrDB:
+    driver: local
+
+networks:
+  cloud:
+    driver: bridge
