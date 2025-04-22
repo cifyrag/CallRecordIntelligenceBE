@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="add info in readme file">
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.TEST/CallRecordServiceTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.TEST/GlobalUsing.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.TEST/StatisticServiceTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/StatisticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/StatisticService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CallRecordIntelligenceBE.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligenceBE.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/readme-file" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,9 +56,11 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/402b2077f38742cb9b381ab9e79e493229c00/26/bd56603c/Arg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/387238ef9c8f8c6b1dccf4dcba4eed0e459454919b2e4b9cad11a5071789df/Dictionary.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/Controllers/CallRecordController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/Controllers/CallRecordController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c092928882a17a51a62a367685d90a0a613eb91fb453b9f50147e19c1f3ff40/NullReferenceException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.EF/Repository/GenericRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.EF/Repository/IGenericRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -74,7 +81,8 @@
     ".NET Launch Settings Profile.CallRecordIntelligence.API: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#7 on feature/readme-file",
+    "c5c204d5-0abb-41b7-9aca-7c69699d5761.executor": "Debug",
+    "git-widget-placeholder": "feature/tests",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -187,6 +195,7 @@
       <workItem from="1740153037862" duration="62000" />
       <workItem from="1745315350920" duration="1730000" />
       <workItem from="1745317112705" duration="14105000" />
+      <workItem from="1745352066035" duration="8128000" />
     </task>
     <task id="LOCAL-00001" summary="set up db">
       <option name="closed" value="true" />
@@ -265,6 +274,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="75" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="75" />
+    <coverage-tree-state>
+      <expand />
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
