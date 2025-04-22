@@ -1,3 +1,4 @@
+global using CallRecordIntelligence.EF.Utils;
 global using CallRecordIntelligence.API.Services.Interfaces;
 global using CallRecordIntelligence.API.Services.Realisations;
 global using System.Text;
@@ -5,3 +6,6 @@ global using Microsoft.AspNetCore.Mvc;
 global using CallRecordIntelligence.EF.Repository;
 global using CallRecordIntelligence.API.Services;
 global using CallRecordIntelligence.EF;
+global using CallRecordIntelligence.API.DTO.Requests;
+global using CallRecordIntelligence.EF.Models;
+global using CallRecordIntelligence.API.DTO.Responses;

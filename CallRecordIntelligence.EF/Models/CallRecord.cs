@@ -20,14 +20,24 @@ public class CallRecord
 
     [Required]
     [Column("call_date", TypeName = "DATE")]
-    public DateTime CallDate { get; set; }
+    public DateOnly CallDate
+    {
+        get => DateOnly.FromDateTime(StartTime.DateTime);
+    }
 
     [Required]
-    [Column("end_time", TypeName = "TIME")]
-    public TimeSpan EndTime { get; set; }
+    [Column("call_start", TypeName = "TIMESTAMP WITH TIME ZONE")]
+    public DateTimeOffset StartTime { get; set; }
 
     [Required]
-    public int Duration { get; set; }
+    [Column("end_time", TypeName = "TIMESTAMP WITH TIME ZONE")]
+    public DateTimeOffset EndTime { get; set; }
+
+    [Required]
+    public int Duration 
+    {
+        get => Convert.ToInt32((EndTime - StartTime).TotalSeconds);
+    }
 
     [Required]
     [Column("cost", TypeName = "DECIMAL(10, 3)")]
@@ -41,11 +51,7 @@ public class CallRecord
     [Column("currency", TypeName = "VARCHAR")]
     [StringLength(3)]
     public string Currency { get; set; }
-
-    [Required]
-    [Column("call_start_timestamp", TypeName = "TIMESTAMP")]
-    public DateTime CallStartTimestamp { get; set; }
-
+    
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public DateTimeOffset Inserted { get; set; }
 

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CallRecordIntelligence.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250422095202_InitialCreate")]
+    [Migration("20250422110837_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -31,14 +31,6 @@ namespace CallRecordIntelligence.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("CallDate")
-                        .HasColumnType("DATE")
-                        .HasColumnName("call_date");
-
-                    b.Property<DateTime>("CallStartTimestamp")
-                        .HasColumnType("TIMESTAMP")
-                        .HasColumnName("call_start_timestamp");
-
                     b.Property<string>("CallerId")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -55,11 +47,8 @@ namespace CallRecordIntelligence.EF.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("currency");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("integer");
-
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("TIME")
+                    b.Property<DateTimeOffset>("EndTime")
+                        .HasColumnType("TIMESTAMP WITH TIME ZONE")
                         .HasColumnName("end_time");
 
                     b.Property<DateTimeOffset>("Inserted")
@@ -82,6 +71,10 @@ namespace CallRecordIntelligence.EF.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR")
                         .HasColumnName("reference");
+
+                    b.Property<DateTimeOffset>("StartTime")
+                        .HasColumnType("TIMESTAMP WITH TIME ZONE")
+                        .HasColumnName("call_start");
 
                     b.HasKey("Id");
 
