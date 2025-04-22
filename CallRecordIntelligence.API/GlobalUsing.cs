@@ -8,3 +8,4 @@ global using CallRecordIntelligence.API.Services;
 global using CallRecordIntelligence.EF;
 global using CallRecordIntelligence.API.DTO.Requests;
 global using CallRecordIntelligence.EF.Models;
+global using CallRecordIntelligence.API.DTO.Responses;

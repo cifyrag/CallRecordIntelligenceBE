@@ -1,5 +1,3 @@
-using CallRecordIntelligence.EF.Models;
-
 namespace CallRecordIntelligence.API.Services.Realisations;
 
 public class CallRecordService: ICallRecordService
@@ -47,7 +45,11 @@ public class CallRecordService: ICallRecordService
         }
     }
 
-    public async Task<Result<IEnumerable<CallRecord>>> GetCallRecordsAsync(string? phoneNumber = null, DateTimeOffset? startTimestamp = null,
+    public async Task<Result<PaginationResponse<CallRecord>>> GetCallRecordsAsync(
+        int page = 0, 
+        int pageSize = 50,
+        string? phoneNumber = null, 
+        DateTimeOffset? startTimestamp = null, 
         DateTimeOffset? endTimestamp = null)
     {
         try
@@ -80,7 +82,10 @@ public class CallRecordService: ICallRecordService
         }
     }
 
-    public async Task<Result<List<CallRecord>>> AddCallRecordsRangeAsync(List<AddCallRecordRequest> request)
+    public async Task<Result<PaginationResponse<CallRecord>>> AddCallRecordsRangeAsync(
+        IEnumerable<AddCallRecordRequest> request,
+        int page = 0, 
+        int pageSize = 50)
     {
         try
         {

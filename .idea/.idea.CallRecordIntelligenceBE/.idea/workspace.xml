@@ -9,16 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="set up services and controllers files">
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Requests/AddCallRecordRequest.cs" afterDir="false" />
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="error messages">
+      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Responses/PaginationResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/GlobalUsing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/GlobalUsing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.EF/Migrations/20250422095202_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.EF/Migrations/20250422095202_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.EF/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.EF/Models/CallRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.EF/Models/CallRecord.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +183,7 @@
       <updated>1740153030721</updated>
       <workItem from="1740153037862" duration="62000" />
       <workItem from="1745315350920" duration="1730000" />
-      <workItem from="1745317112705" duration="3661000" />
+      <workItem from="1745317112705" duration="5006000" />
     </task>
     <task id="LOCAL-00001" summary="set up db">
       <option name="closed" value="true" />
@@ -213,7 +209,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745317261631</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="set up interfase">
+      <option name="closed" value="true" />
+      <created>1745320832662</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745320832662</updated>
+    </task>
+    <task id="LOCAL-00005" summary="error messages">
+      <option name="closed" value="true" />
+      <created>1745321217845</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745321217845</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +249,8 @@
     <MESSAGE value="set up db" />
     <MESSAGE value="set up services and controllers" />
     <MESSAGE value="set up services and controllers files" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up services and controllers files" />
+    <MESSAGE value="set up interfase" />
+    <MESSAGE value="error messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="error messages" />
   </component>
 </project>
