@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Requests/StatisticsFilterDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Requests/StatisticsGranularity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.EF/Services/PredicateBuilder.cs" afterDir="false" />
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="add info in readme file">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/StatisticController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/StatisticController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/IStatisticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/IStatisticService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/StatisticService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/StatisticService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/readme-file" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,22 +68,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.CallRecordIntelligence.API: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.CallRecordIntelligence.API: https.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;statistic-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.CallRecordIntelligence.API: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.CallRecordIntelligence.API: https.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#7 on feature/readme-file",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CallRecordIntelligence.API: https">
     <configuration name="CallRecordIntelligence.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CallRecordIntelligence.API/CallRecordIntelligence.API.csproj" />
@@ -258,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745328624951</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add info in readme file">
+      <option name="closed" value="true" />
+      <created>1745348665337</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745348665337</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +289,7 @@
     <MESSAGE value="add PaginationResponse" />
     <MESSAGE value="realisation CallRecordService" />
     <MESSAGE value="call record endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="call record endpoint" />
+    <MESSAGE value="add info in readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add info in readme file" />
   </component>
 </project>
