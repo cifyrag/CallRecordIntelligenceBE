@@ -11,10 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Controllers/CallRecordController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/387238ef9c8f8c6b1dccf4dcba4eed0e459454919b2e4b9cad11a5071789df/Dictionary.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/Controllers/CallRecordController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/cifyr/source/repos/cifyrag/CallRecordIntelligenceBE/CallRecordIntelligence.API/Controllers/CallRecordController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -76,7 +75,7 @@
     &quot;.NET Launch Settings Profile.CallRecordIntelligence.API: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/call-record-service&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/readme-file&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
