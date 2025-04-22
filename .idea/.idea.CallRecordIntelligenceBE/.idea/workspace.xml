@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="error messages">
-      <change afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/DTO/Responses/PaginationResponse.cs" afterDir="false" />
+    <list default="true" id="628313f3-0560-4d46-ba01-dbd6c3721406" name="Changes" comment="add PaginationResponse">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CallRecordIntelligenceBE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/GlobalUsing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/GlobalUsing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Interfaces/ICallRecordService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CallRecordIntelligence.API/Services/Realisations/CallRecordService.cs" afterDir="false" />
     </list>
@@ -183,7 +181,7 @@
       <updated>1740153030721</updated>
       <workItem from="1740153037862" duration="62000" />
       <workItem from="1745315350920" duration="1730000" />
-      <workItem from="1745317112705" duration="5006000" />
+      <workItem from="1745317112705" duration="8763000" />
     </task>
     <task id="LOCAL-00001" summary="set up db">
       <option name="closed" value="true" />
@@ -225,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745321217845</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add PaginationResponse">
+      <option name="closed" value="true" />
+      <created>1745322208363</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745322208363</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +257,7 @@
     <MESSAGE value="set up services and controllers files" />
     <MESSAGE value="set up interfase" />
     <MESSAGE value="error messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="error messages" />
+    <MESSAGE value="add PaginationResponse" />
+    <option name="LAST_COMMIT_MESSAGE" value="add PaginationResponse" />
   </component>
 </project>

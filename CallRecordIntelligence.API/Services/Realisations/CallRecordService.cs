@@ -3,14 +3,13 @@ namespace CallRecordIntelligence.API.Services.Realisations;
 public class CallRecordService: ICallRecordService
 {
     private readonly ILogger<CallRecordService> _logger;
-    private readonly IGenericRepository<CallRecordService> _callRecordService;
+    private readonly IGenericRepository<CallRecord> _callRecordRepository;
 
     public CallRecordService(
-        ILogger<CallRecordService> logger,
-        IGenericRepository<CallRecordService> callRecordService)
+        ILogger<CallRecordService> logger, IGenericRepository<CallRecord> callRecordRepository)
     {
         _logger = logger;
-        _callRecordService = callRecordService;
+        _callRecordRepository = callRecordRepository;
     }
     
     #region GET
@@ -19,7 +18,15 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Id == callRecordId);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+
+            return callRecord;
         }
         catch (Exception ex)
         {
@@ -34,7 +41,19 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(reference))
+            {
+                return Error.Validation(code: "reference_is_required");
+            }
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Reference == reference);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+
+            return callRecord;
         }
         catch (Exception ex)
         {
@@ -54,7 +73,40 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            var total = await _callRecordRepository.CountAsync(
+                filter: c => 
+                    (phoneNumber == null 
+                     || (c.Recipient.Contains(phoneNumber) 
+                         || c.CallerId.Contains(phoneNumber))) 
+                    && (startTimestamp == null 
+                        || c.StartTime >= startTimestamp) 
+                    && (endTimestamp == null 
+                        || c.EndTime <= endTimestamp));
+            
+            Result<IEnumerable<CallRecord>> callRecords = new List<CallRecord>();
+
+            if (total.Value > 0)
+            {
+                callRecords = await _callRecordRepository.GetListAsync<CallRecord>(
+                    filter: c =>
+                        (phoneNumber == null
+                         || (c.Recipient.Contains(phoneNumber)
+                             || c.CallerId.Contains(phoneNumber)))
+                        && (startTimestamp == null
+                            || c.StartTime >= startTimestamp)
+                        && (endTimestamp == null
+                            || c.EndTime <= endTimestamp),
+                    skip: page * pageSize,
+                    take: pageSize);
+            }
+            
+            if (total.Value == 0 || callRecords?.Value is null || !callRecords.Value.Any())
+            {
+                return new List<CallRecord>().ToPageResponse(page, pageSize, total.Value);
+            }
+
+            return callRecords.Value.ToList()
+                .ToPageResponse(page, pageSize, total.Value);
         }
         catch (Exception ex)
         {
@@ -72,7 +124,18 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            var newCallRecord = new CallRecord
+            {
+                CallerId = request.CallerId,
+                Recipient = request.Recipient,
+                StartTime = request.StartTime,
+                EndTime = request.EndTime,
+                Cost = request.Cost,
+                Reference = request.Reference,
+                Currency = request.Currency
+            };
+            
+            return await _callRecordRepository.AddAsync(newCallRecord);
         }
         catch (Exception ex)
         {
@@ -82,14 +145,22 @@ public class CallRecordService: ICallRecordService
         }
     }
 
-    public async Task<Result<PaginationResponse<CallRecord>>> AddCallRecordsRangeAsync(
-        IEnumerable<AddCallRecordRequest> request,
-        int page = 0, 
-        int pageSize = 50)
+    public async Task<Result<bool>> AddCallRecordsRangeAsync(IEnumerable<AddCallRecordRequest> requests)
     {
         try
         {
-            throw new NotImplementedException();
+            var callrecords = requests.Select(request => new CallRecord
+            {
+                CallerId = request.CallerId,
+                Recipient = request.Recipient,
+                StartTime = request.StartTime,
+                EndTime = request.EndTime,
+                Cost = request.Cost,
+                Reference = request.Reference,
+                Currency = request.Currency
+            });
+            
+            return await _callRecordRepository.AddRangeAsync(callrecords);
         }
         catch (Exception ex)
         {
@@ -103,11 +174,27 @@ public class CallRecordService: ICallRecordService
     
     #region PUT
     
-    public async Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, AddCallRecordRequest request)
+    public async Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, UpdateCallRecordRequest request)
     {
         try
         {
-            throw new NotImplementedException();
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Id == callRecordId);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+            
+            callRecord.Value.CallerId = request.CallerId ?? callRecord.Value.CallerId;
+            callRecord.Value.Recipient = request.Recipient ?? callRecord.Value.Recipient;
+            callRecord.Value.StartTime = request.StartTime ?? callRecord.Value.StartTime;
+            callRecord.Value.EndTime = request.EndTime ?? callRecord.Value.EndTime;
+            callRecord.Value.Cost = request.Cost ?? callRecord.Value.Cost;
+            callRecord.Value.Reference = request.Reference ?? callRecord.Value.Reference;
+            callRecord.Value.Currency = request.Currency ?? callRecord.Value.Currency;
+            
+            return await _callRecordRepository.UpdateAsync(callRecord.Value);
         }
         catch (Exception ex)
         {
@@ -118,11 +205,31 @@ public class CallRecordService: ICallRecordService
         }
     }
 
-    public async Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, AddCallRecordRequest request)
+    public async Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, UpdateCallRecordRequest request)
     {
         try
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(reference))
+            {
+                return Error.Validation(code: "reference_is_required");
+            }
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Reference == reference);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+            
+            callRecord.Value.CallerId = request.CallerId ?? callRecord.Value.CallerId;
+            callRecord.Value.Recipient = request.Recipient ?? callRecord.Value.Recipient;
+            callRecord.Value.StartTime = request.StartTime ?? callRecord.Value.StartTime;
+            callRecord.Value.EndTime = request.EndTime ?? callRecord.Value.EndTime;
+            callRecord.Value.Cost = request.Cost ?? callRecord.Value.Cost;
+            callRecord.Value.Reference = request.Reference ?? callRecord.Value.Reference;
+            callRecord.Value.Currency = request.Currency ?? callRecord.Value.Currency;
+            
+            return await _callRecordRepository.UpdateAsync(callRecord.Value);
         }
         catch (Exception ex)
         {
@@ -141,7 +248,15 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Id == callRecordId);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+            
+            return await _callRecordRepository.RemoveAsync(callRecord.Value);
         }
         catch (Exception ex)
         {
@@ -156,7 +271,19 @@ public class CallRecordService: ICallRecordService
     {
         try
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(reference))
+            {
+                return Error.Validation(code: "reference_is_required");
+            }
+            var callRecord = await _callRecordRepository.GetSingleAsync<CallRecord>(
+                c => c.Reference == reference);
+
+            if (callRecord?.Value is null)
+            {
+                return Error.NotFound(code: "call_record_not_found");
+            }
+            
+            return await _callRecordRepository.RemoveAsync(callRecord.Value);
         }
         catch (Exception ex)
         {

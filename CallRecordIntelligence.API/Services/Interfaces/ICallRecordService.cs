@@ -12,13 +12,10 @@ public interface ICallRecordService
         DateTimeOffset? endTimestamp = null);
      
     Task<Result<CallRecord>> AddCallRecordAsync(AddCallRecordRequest request);
-    Task<Result<PaginationResponse<CallRecord>>> AddCallRecordsRangeAsync(
-        IEnumerable<AddCallRecordRequest> request,
-        int page = 0, 
-        int pageSize = 50);
+    Task<Result<bool>> AddCallRecordsRangeAsync(IEnumerable<AddCallRecordRequest> requests);
     
-    Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, AddCallRecordRequest request);
-    Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, AddCallRecordRequest request);
+    Task<Result<CallRecord>> UpdateCallRecordAsync(Guid callRecordId, UpdateCallRecordRequest request);
+    Task<Result<CallRecord>> UpdateCallRecordAsync(string reference, UpdateCallRecordRequest request);
     
     Task<Result<CallRecord>> RemoveCallRecordAsync(Guid callRecordId);
     Task<Result<CallRecord>> RemoveCallRecordAsync(string reference);
